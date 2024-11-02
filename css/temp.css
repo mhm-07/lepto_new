@@ -1,0 +1,117 @@
+/* styles.css */
+
+/* Gaya dasar untuk tema dark */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1b263b;
+    color: #d1d5db;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    padding: 30px;
+    margin-top: 5%;
+    background-color: #24344d;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+h2 {
+    color: #4b9bff;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+p {
+    color: #9ca3af;
+}
+
+/* Gaya input dan tombol */
+.form-control {
+    background-color: #374151;
+    border: 1px solid #4b9bff;
+    color: #ffffff;
+}
+
+.form-control::placeholder {
+    color: #b3b3b3;
+}
+
+.btn-primary {
+    background-color: #2196f3; /* Biru untuk tombol submit */
+    color: #f3f4f6;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #1976d2; /* Warna lebih gelap saat hover */
+    transform: translateY(-3px);
+}
+
+/* Gaya untuk card */
+.card {
+    background-color: #2c2f38;
+    border: none;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+#tempValue {
+    color: #2196f3; /* Biru untuk nilai suhu */
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#tempStatus {
+    font-size: 1.2rem;
+}
+
+/* Kelas untuk status */
+.normal {
+    color: #4caf50; /* Hijau untuk normal */
+}
+
+.abnormal {
+    color: #ff3e00; /* Merah untuk abnormal */
+}
+
+/* Gaya animasi sederhana */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer dan elemen kecil */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .btn-block {
+        padding: 15px;
+    }
+}

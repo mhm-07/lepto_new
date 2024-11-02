@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Summary</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/sum.css">
+</head>
+<body>
+    <div class="container mt-5 fade-in">
+        <h2 class="text-center">Health Summary</h2>
+        <p class="text-center">Here is the summary of your health readings:</p>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4>Blood Pressure</h4>
+                <p id="bpSummary">Status: --</p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4>Heart Rate</h4>
+                <p id="hrSummary">Status: --</p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4>Temperature</h4>
+                <p id="tempSummary">Status: --</p>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4>SpO2</h4>
+                <p id="spo2Summary">Status: --</p>
+            </div>
+        </div>
+
+        <!-- Pesan kesehatan -->
+        <div class="card mt-3">
+            <div class="card-body text-center">
+                <h3 id="healthStatus" class="text-primary">Checking status...</h3>
+            </div>
+        </div>
+
+        <!-- Tombol Clear Data -->
+        <div class="text-center mt-4">
+            <button onclick="clearData()" class="btn btn-secondary">Clear Data</button>
+        </div>
+
+        <!-- Tombol Back to Home -->
+        <div class="text-center mt-3">
+            <button onclick="location.href='index.html'" class="btn btn-primary">Back to Home</button>
+        </div>
+    </div>
+
+    <script>
+        // Menampilkan data status dari localStorage dan menentukan status kesehatan
+        function displaySummary() {
+            const bpStatus = localStorage.getItem("bpStatus") || "Data not available";
+            const hrStatus = localStorage.getItem("hrStatus") || "Data not available";
+            const tempStatus = localStorage.getItem("tempStatus") || "Data not available";
+            const spo2Status = localStorage.getItem("spo2Status") || "Data not available";
+
+            document.getElementById("bpSummary").textContent = `Status: ${bpStatus}`;
+            document.getElementById("hrSummary").textContent = `Status: ${hrStatus}`;
+            document.getElementById("tempSummary").textContent = `Status: ${tempStatus}`;
+            document.getElementById("spo2Summary").textContent = `Status: ${spo2Status}`;
+
+            // Cek apakah ada status yang "Abnormal"
+            const isHealthy = [bpStatus, hrStatus, tempStatus, spo2Status].every(status => status.includes("Normal"));
+            const healthStatusElem = document.getElementById("healthStatus");
+
+            if (isHealthy) {
+                healthStatusElem.textContent = "Anda sehat";
+                healthStatusElem.classList.remove("text-danger");
+                healthStatusElem.classList.add("text-success");
+            } else {
+                healthStatusElem.textContent = "Anda sakit";
+                healthStatusElem.classList.remove("text-success");
+                healthStatusElem.classList.add("text-danger");
+            }
+        }
+
+        // Menghapus data dari localStorage
+        function clearData() {
+            localStorage.removeItem("bpStatus");
+            localStorage.removeItem("hrStatus");
+            localStorage.removeItem("tempStatus");
+            localStorage.removeItem("spo2Status");
+            alert("Data has been cleared.");
+            displaySummary(); // Perbarui tampilan setelah data dihapus
+        }
+
+        // Panggil fungsi untuk menampilkan summary saat halaman dimuat
+        displaySummary();
+    </script>
+</body>
+</html>

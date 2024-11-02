@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Rate Monitoring</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/heart.css">
+</head>
+<body>
+    <script>
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = "login.html";
+        }
+    </script>
+    <div class="container mt-5 fade-in">
+        <h2 class="text-center">Heart Rate Monitoring</h2>
+        <p class="text-center">Normal Heart Rate: 60-100 x/minute</p>
+
+        <form class="text-center mt-3">
+            <label for="heartRateInput">Masukkan Denyut Jantung Anda:</label>
+            <input type="number" id="heartRateInput" class="form-control w-25 mx-auto" placeholder="e.g., 80">
+            <button type="button" onclick="updateHeartRate()" class="btn btn-success mt-3">Submit</button>
+        </form>
+
+        <div class="card mt-3">
+            <div class="card-body text-center">
+                <h3 id="heartRateValue">0 x/minute</h3>
+                <p id="heartRateStatus">Status: --</p>
+            </div>
+        </div>
+
+        <!-- Tombol Next -->
+        <div class="text-center mt-4">
+            <a href="temperature.html" class="btn btn-secondary">Next</a>
+        </div>
+    </div>
+
+    <script>
+        function updateHeartRate() {
+            const heartRate = parseInt(document.getElementById("heartRateInput").value);
+            const heartRateElem = document.getElementById("heartRateValue");
+            const heartRateStatusElem = document.getElementById("heartRateStatus");
+
+            let status = (heartRate >= 60 && heartRate <= 100) ? "Normal Heart Rate" : "Abnormal Heart Rate";
+            heartRateStatusElem.textContent = `Status: ${status}`;
+            heartRateStatusElem.className = status === "Normal Heart Rate" ? "normal" : "abnormal";
+            heartRateElem.textContent = `${heartRate} x/minute`;
+
+            localStorage.setItem("hrStatus", status);
+        }
+    </script>
+</body>
+</html>

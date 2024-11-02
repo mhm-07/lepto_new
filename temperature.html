@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Monitoring</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/temp.css">
+</head>
+<body>
+    <script>
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = "login.html";
+        }
+    </script>
+    <div class="container mt-5 fade-in">
+        <h2 class="text-center">Temperature Monitoring</h2>
+        <p class="text-center">Normal Temperature: 36-37°C</p>
+
+        <form class="text-center mt-3">
+            <label for="tempInput">Masukkan Suhu Tubuh Anda (°C):</label>
+            <input type="number" id="tempInput" class="form-control w-25 mx-auto" placeholder="e.g., 36.5">
+            <button type="button" onclick="updateTemperature()" class="btn btn-primary mt-3">Submit</button>
+        </form>
+
+        <div class="card mt-3">
+            <div class="card-body text-center">
+                <h3 id="tempValue">0°C</h3>
+                <p id="tempStatus">Status: --</p>
+            </div>
+        </div>
+
+        <!-- Tombol Next -->
+        <div class="text-center mt-4">
+            <a href="spo2.html" class="btn btn-secondary">Next</a>
+        </div>
+    </div>
+
+    <script>
+        function updateTemperature() {
+            const tempInput = parseFloat(document.getElementById("tempInput").value);
+            const tempValueElem = document.getElementById("tempValue");
+            const tempStatusElem = document.getElementById("tempStatus");
+
+            let status = tempInput >= 36 && tempInput <= 37 ? "Normal Temperature" : "Abnormal Temperature";
+            tempStatusElem.textContent = `Status: ${status}`;
+            tempStatusElem.className = status === "Normal Temperature" ? "normal" : "abnormal";
+            tempValueElem.textContent = tempInput + "°C";
+
+            localStorage.setItem("tempStatus", status);
+        }
+    </script>
+</body>
+</html>

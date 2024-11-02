@@ -1,0 +1,118 @@
+/* styles.css */
+
+/* Gaya dasar untuk tema dark */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1b263b;
+    color: #d1d5db;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    padding: 30px;
+    margin-top: 5%;
+    background-color: #24344d;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+h2 {
+    color: #4b9bff;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+p {
+    color: #9ca3af;
+}
+
+/* Gaya untuk card */
+.card {
+    background-color: #2c2f38;
+    border: none;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+h4 {
+    color: #4b9bff;
+}
+
+/* Status Kesehatan */
+#healthStatus {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+/* Gaya tombol */
+.btn {
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-secondary {
+    background-color: #6b7280; /* Warna untuk tombol Clear Data */
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563; /* Warna lebih gelap saat hover */
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background-color: #4b9bff; /* Warna untuk tombol Back to Home */
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #007bff; /* Warna lebih gelap saat hover */
+    transform: translateY(-3px);
+}
+
+/* Kelas untuk status */
+.text-success {
+    color: #4caf50; /* Hijau untuk sehat */
+}
+
+.text-danger {
+    color: #ff3e00; /* Merah untuk sakit */
+}
+
+/* Gaya animasi sederhana */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer dan elemen kecil */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .btn-block {
+        padding: 15px;
+    }
+}

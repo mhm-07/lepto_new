@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpO2 Monitoring</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/sp.css">
+</head>
+<body>
+    <script>
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = "login.html";
+        }
+    </script>
+    <div class="container mt-5 fade-in">
+        <h2 class="text-center">SpO2 Monitoring</h2>
+        <p class="text-center">Normal SpO2: 95-100%</p>
+
+        <form class="text-center mt-3">
+            <label for="spo2Input">Masukkan SpO2 Anda (%):</label>
+            <input type="number" id="spo2Input" class="form-control w-25 mx-auto" placeholder="e.g., 98">
+            <button type="button" onclick="updateSpO2()" class="btn btn-success mt-3">Submit</button>
+        </form>
+
+        <div class="card mt-3">
+            <div class="card-body text-center">
+                <h3 id="spo2Value">0%</h3>
+                <p id="spo2Status">Status: --</p>
+            </div>
+        </div>
+
+        <!-- Tombol Next -->
+        <div class="text-center mt-4">
+            <a href="health_summary.html" class="btn btn-secondary">Next</a>
+        </div>
+    </div>
+
+    <script>
+        function updateSpO2() {
+            const spo2Input = parseInt(document.getElementById("spo2Input").value);
+            const spo2ValueElem = document.getElementById("spo2Value");
+            const spo2StatusElem = document.getElementById("spo2Status");
+
+            let status = (spo2Input >= 95 && spo2Input <= 100) ? "Normal SpO2" : "Abnormal SpO2";
+            spo2StatusElem.textContent = `Status: ${status}`;
+            spo2StatusElem.className = status === "Normal SpO2" ? "normal" : "abnormal";
+            spo2ValueElem.textContent = `${spo2Input}%`;
+
+            localStorage.setItem("spo2Status", status);
+        }
+    </script>
+</body>
+</html>

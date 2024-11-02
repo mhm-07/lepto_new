@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Summary</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        // Cek jika semua data telah diisi
+        if (!sessionStorage.getItem('temperature') || !sessionStorage.getItem('bloodPressure') ||
+            !sessionStorage.getItem('heartRate') || !sessionStorage.getItem('spo2')) {
+            alert("Harap lengkapi semua data kesehatan terlebih dahulu.");
+            window.location.href = "index.html";
+        }
+    </script>
+    
+    <script>
+        // Redirect ke login jika belum login
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = "login.html";
+        }
+    </script>
+    <div class="container mt-5 fade-in">
+        <h2 class="text-center">Health Summary Alert</h2>
+        <p class="text-center">Berikut adalah kesimpulan dari data kesehatan Anda yang diinput:</p>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4>Temperature</h4>
+                <p id="tempSummary">Status: --, Value: --</p>
+                
+                <h4>Blood Pressure</h4>
+                <p id="bpSummary">Status: --, Systole: --, Diastole: --</p>
+
+                <h4>Heart Rate</h4>
+                <p id="heartRateSummary">Status: --, Value: --</p>
+
+                <h4>SpO2</h4>
+                <p id="spo2Summary">Status: --, Value: --</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="indications.html" class="btn btn-warning">Check Leptospirosis Indications</a>
+        </div>
+    </div>
+
+    <script>
+        // Ambil data yang diinput dari localStorage dan tampilkan di halaman ini
+        document.getElementById("tempSummary").textContent = `Status: ${localStorage.getItem("tempStatus")}, Value: ${localStorage.getItem("tempValue")}°C`;
+        document.getElementById("bpSummary").textContent = `Status: ${localStorage.getItem("bpStatus")}, Systole: ${localStorage.getItem("systole")}, Diastole: ${localStorage.getItem("diastole")}`;
+        document.getElementById("heartRateSummary").textContent = `Status: ${localStorage.getItem("heartRateStatus")}, Value: ${localStorage.getItem("heartRate")} x/minute`;
+        document.getElementById("spo2Summary").textContent = `Status: ${localStorage.getItem("spo2Status")}, Value: ${localStorage.getItem("spo2Value")}%`;
+    </script>
+</body>
+</html> -->

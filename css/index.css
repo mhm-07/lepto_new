@@ -1,0 +1,140 @@
+/* styles.css */
+
+/* Gaya dasar untuk tema dark */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1b263b;
+    color: #d1d5db;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    padding: 30px;
+    margin-top: 5%;
+    background-color: #24344d;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+h1 {
+    color: #4b9bff;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+p {
+    color: #9ca3af;
+}
+
+/* Gaya tombol fitur kesehatan */
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-danger {
+    background-color: #4b9bff;
+    color: #f3f4f6;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(75, 155, 255, 0.3);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-success:hover,
+.btn-danger:hover {
+    background-color: #377cd6;
+    transform: translateY(-3px);
+}
+
+.btn-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.btn-block img {
+    margin-bottom: 10px;
+    filter: brightness(0.9);
+}
+
+.btn-block span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #f3f4f6;
+}
+
+/* Gaya animasi sederhana */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer dan elemen kecil */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .btn-block {
+        padding: 15px;
+    }
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+        margin-top: 2%;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .btn-primary {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+    .btn-primary {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}

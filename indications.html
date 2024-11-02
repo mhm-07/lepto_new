@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indications of Leptospirosis</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Cek jika semua data telah diisi
+        if (!sessionStorage.getItem('temperature') || !sessionStorage.getItem('bloodPressure') ||
+            !sessionStorage.getItem('heartRate') || !sessionStorage.getItem('spo2')) {
+            alert("Harap lengkapi semua data kesehatan terlebih dahulu.");
+            window.location.href = "index.html";
+        }
+    </script>
+    
+</head>
+<body>
+    <div class="container mt-5 fade-in">
+        <h2 class="text-center">Indications of Leptospirosis</h2>
+        <p class="text-center">
+            Leptospirosis is an infection caused by the Leptospira bacteria. Common symptoms include fever, headache, chills, muscle aches, vomiting, or jaundice.
+        </p>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <ul>
+                    <li>High fever (above 38°C)</li>
+                    <li>Severe headache</li>
+                    <li>Muscle pain, especially in the legs and lower back</li>
+                    <li>Redness of eyes</li>
+                    <li>Jaundice (yellowing of skin and eyes)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="alert.html" class="btn btn-primary">Return to Summary</a>
+        </div>
+    </div>
+</body>
+</html>
